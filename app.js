@@ -1,6 +1,6 @@
 var   
       mysql = require('mysql')
-    // , express = require('express')
+    , express = require('express')
     , url   = require('url')
     , http  = require('http')
     , sq    = require('squel')
@@ -20,9 +20,11 @@ connection.connect();
 
 /* SERVER */
 
+var app=express();
+
 var port=1992, host='127.0.0.1';
 
-http.createServer(function (req, res) {
+app.get('/save', function (req, res) {
     
     var queryData=url.parse(req.url, true).query;
     // console.log(req.connection.remoteAddress, '=', queryData);
@@ -46,7 +48,9 @@ http.createServer(function (req, res) {
     res.write('continue');
     res.end('\n');
 
-}).listen(port, host);
+});
+
+app.listen(port);
 
 // connection.end();   // [] TODO is commenting this bad?
 
