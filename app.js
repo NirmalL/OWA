@@ -58,6 +58,14 @@ app.get('/save', function (req, res) {
 
 });
 
+app.get('/read', function (req, res) {
+    
+    // res.writeHead(200, {'Content-Type': 'application/json'});
+    res.json({'a':'b'});
+    // res.end('\n');
+
+})
+
 app.listen(port);
 
 // connection.end();   // [] TODO is commenting this bad?

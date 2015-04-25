@@ -1,0 +1,4 @@
+#!/bin/bash
+
+printf "GET /read HTTP/1.0\r\n\r\n" | nc 127.0.0.1 1992
+
