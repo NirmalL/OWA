@@ -58,10 +58,12 @@ app.get('/save', function (req, res) {
 
 });
 
-app.get('/read', function (req, res) {
+app.get('/read/*', function (req, res) {
     
     // res.writeHead(200, {'Content-Type': 'application/json'});
-    res.json({'a':'b'});
+    res.json({
+        "area": ["kandy", "kagalla", "katugasthota"]
+    });
     // res.end('\n');
 
 })
