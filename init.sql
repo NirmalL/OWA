@@ -14,4 +14,6 @@ create table data (
     temp     float,
     wind     float,
     humid    float
-)
+);
+
+-- insert into devs (id) values (1)

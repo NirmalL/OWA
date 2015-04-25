@@ -11,7 +11,7 @@ var
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'weather'
 });
 
@@ -28,6 +28,14 @@ app.get('/save', function (req, res) {
     
     var queryData=url.parse(req.url, true).query;
     // console.log(req.connection.remoteAddress, '=', queryData);
+
+    // TODO [ok]
+    //  check if query actually contains the parameters
+    //  [] test:
+    if (!queryData['id'] || !queryData['temp'] || !queryData['wind'] || !queryData['humid']) {
+        console.err('Bad /save?.. request');
+        return;
+    };
 
     connection.query(
         sq.insert().into("data")
