@@ -58,10 +58,17 @@ app.get('/save', function (req, res) {
 
 });
 
+app.get('/read', function (req, res) {
+
+    // API guide
+}
+
 // __/read/<area>/<division>/<device>/<month>/<day>/<count>
 
 app.get('/read/*', function (req, res) {
     
+    var rest=url.parse(req.url, true);
+    console.log(rest);
     // res.writeHead(200, {'Content-Type': 'application/json'});
     res.json({
         "area": ["kandy", "kagalla", "katugasthota"]
