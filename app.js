@@ -58,6 +58,8 @@ app.get('/save', function (req, res) {
 
 });
 
+// __/read/<area>/<division>/<device>/<month>/<day>/<count>
+
 app.get('/read/*', function (req, res) {
     
     // res.writeHead(200, {'Content-Type': 'application/json'});
