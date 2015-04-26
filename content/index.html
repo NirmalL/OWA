@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <div id='plot'></div>
+
+    <script src="jquery.js"></script>
+    <script src="jquery.flot.js"></script>
+    <script>
+
+        setTimeout(function () {
+            $.ajax({
+                url: "read/kandy/peradeniya/13/",
+                // context: document.body,
+                type: "GET",
+                dataType: "json",
+            }).done(function (series) {
+                    // Load all the data in one pass; if we only got partial
+                    // data we could merge it with what we already have.
+
+                    data = series;
+                    // $.plot("#plot", data, options);
+
+                    document.write(JSON.stringify(data));
+                    console.log(JSON.stringify(data));
+                    console.log('done.')
+            });
+        }, 1000);
+    </script>
+    
+</html>

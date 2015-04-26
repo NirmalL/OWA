@@ -85,7 +85,13 @@ app.get('/read/*', function (req, res) {
         }
     );
 
-})
+});
+
+app.get('/plot', function(req, res){
+    res.sendFile(__dirname + '/content/index.html');
+});
+
+app.use(express.static(__dirname+'/content'));
 
 app.listen(port);
 
