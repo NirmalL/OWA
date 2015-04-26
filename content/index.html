@@ -7,24 +7,16 @@
     <script src="jquery.flot.js"></script>
     <script>
 
-        setTimeout(function () {
-            $.ajax({
-                url: "read/kandy/peradeniya/13/",
-                // context: document.body,
-                type: "GET",
-                dataType: "json",
-            }).done(function (series) {
-                    // Load all the data in one pass; if we only got partial
-                    // data we could merge it with what we already have.
-
-                    data = series;
-                    // $.plot("#plot", data, options);
-
+        setInterval(function () {
+            $.getJSON("read/kandy/peradeniya/13/",
+                function (data) {
                     document.write(JSON.stringify(data));
                     console.log(JSON.stringify(data));
                     console.log('done.')
-            });
-        }, 1000);
+                }
+            );
+        }, 5000);
+        
     </script>
     
 </html>
