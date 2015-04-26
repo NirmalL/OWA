@@ -1,0 +1,2 @@
+#!/bin/bash
+nodejs app.js ; notify-send 'Server stopped' 'An error occured'

@@ -22,7 +22,7 @@ connection.connect();
 
 var app=express();
 
-var port=8080, host='127.0.0.1';
+var port=1992, host='127.0.0.1';
 
 app.get('/save', function (req, res) {
     
@@ -71,24 +71,19 @@ app.get('/read/*', function (req, res) {
     rest.pop(); rest.pop();
     rest.reverse();
     
-    connection.query(
-        sq.select('*').from('data').order('id', false).limit(1)
-        .toString(), 
-        
-        function (err, rows, fields) {
+    //// '', 'rest', ...
+    // console.log(rest);
 
-            if (err) throw err;
-
-            res.json(rows[0]);
-            console.log(JSON.stringify(rows[0]));
-
-        }
-    );
+    // res.writeHead(200, {'Content-Type': 'application/json'});
+    res.json({
+        "area": ["kandy", "kagalla", "katugasthota"]
+    });
+    // res.end('\n');
 
 })
 
 app.listen(port);
 
-// connection.end();   // [] TODO: is commenting this, bad?
+// connection.end();   // [] TODO is commenting this bad?
 
 console.log('Server running at http://'+host+':'+port+'/');

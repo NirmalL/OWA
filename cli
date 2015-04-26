@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "GET /save?id=1&temp=27.0&wind=200.0&humid=60.0 HTTP/1.0\r\n\r\n" | nc 127.0.0.1 1992
+printf "GET /save?id=1&temp=27.0&wind=200.0&humid=60.0 HTTP/1.0\r\n\r\n" | nc 127.0.0.1 8080
