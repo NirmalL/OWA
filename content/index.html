@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html>
 
-    <div id='plot'></div>
+    <div id="plot" style="width:600px;height:300px"></div>
 
     <script src="jquery.js"></script>
     <script src="jquery.flot.js"></script>
     <script>
 
+    var options = {
+        lines: { show: true },
+        // points: { show: true },
+        xaxis: { tickDecimals: 0, tickSize: 1 }
+    };
+
+    var series=[
+        {label:'temperature',data:[]},
+        {label:'wind',data:[]},
+        {label:'humidity',data:[]}
+    ];
+
         setInterval(function () {
             $.getJSON("read/kandy/peradeniya/13/",
                 function (data) {
-                    document.write(JSON.stringify(data));
-                    console.log(JSON.stringify(data));
-                    console.log('done.')
+                    // document.write(JSON.stringify(data));
+                    // console.log(JSON.stringify(data));
+                    // $.plot($("#plot"), data['wind'], undefined);
+                    var plotarea = $("#plot");
+                    // plotarea.css("height", "250px");
+                    // plotarea.css("width", "500px");
+                    series[1].data.push([data['id'], data['wind']]);
+                    series[0].data.push([data['id'], data['temp']]);
+                    series[2].data.push([data['id'], data['humid']]);
+                    $.plot( plotarea , series, options );
                 }
             );
         }, 5000);
-        
+
     </script>
     
 </html>

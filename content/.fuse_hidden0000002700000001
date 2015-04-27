@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <div id="plot" style="width:600px;height:300px"></div>
+
+    <script src="jquery.js"></script>
+    <script src="jquery.flot.js"></script>
+    <script>
+
+        setInterval(function () {
+            $.getJSON("read/kandy/peradeniya/13/",
+                function (data) {
+                    // document.write(JSON.stringify(data));
+                    // console.log(JSON.stringify(data));
+                    $.plot($("#plot"), data, options);
+                }
+            );
+        }, 5000);
+
+    </script>
+    
+</html>
