@@ -58,14 +58,11 @@ void setup() {
   Serial.println("connecting...");
 
   // if you get a connection, report back via serial:
-  if (client.connect(server, 8080)) {
+  if (client.connect(server, 45551)) {
     Serial.println("connected");
     // Make a HTTP request:
-    client.println("GET /log?id=2&temp=30&water=10&humid=70 HTTP/1.0");
-    client.print("Host: 192.168.1.1\r\n");
-    client.print("User-Agent: arduino-ethernet\r\n");
-    client.print("Connection: close\r\n\r\n");
-    //client.println();
+    client.println("GET /log?id=2&temp=30&water=10 HTTP/1.0");
+    client.println();
   } 
   else {
     // if you didn't get a connection to the server:

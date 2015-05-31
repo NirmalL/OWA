@@ -17,3 +17,4 @@ create table data (
 );
 
 -- insert into devs (id) values (1)
+insert into devs (id) values (1);
