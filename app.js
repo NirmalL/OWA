@@ -22,7 +22,7 @@ connection.connect();
 
 var app=express();
 
-var port=8080, host='127.0.0.1';
+var port=80, host='127.0.0.1';
 
 app.get('/save', function (req, res) {
     
@@ -32,7 +32,7 @@ app.get('/save', function (req, res) {
     // TODO [ok]
     //  check if query actually contains the parameters
     //  [] test:
-    if (!queryData['id'] || !queryData['temp'] || !queryData['wind'] || !queryData['humid']) {
+    if (!queryData['id'] || !queryData['temp'] || !queryData['wind'] || !queryData['humid'] || !queryData['water']) {
         console.err('Bad /save?.. request');
         return;
     };
@@ -43,6 +43,7 @@ app.get('/save', function (req, res) {
             .set("temp", parseFloat(queryData['temp']))
             .set("wind", parseFloat(queryData['wind']))
             .set("humid", parseFloat(queryData['humid']))
+            .set("water", parseFloat(queryData['water']))
                 .toString(), function (err, rows, fields) {
         if (!err) {
             // console.log('sol =', rows);

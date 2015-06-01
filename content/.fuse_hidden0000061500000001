@@ -19,34 +19,15 @@
         height: 24px;
         color: transparent;
         /*padding: 30px;*/
-        border: 3px solid blue;
     }
     .node:hover {
         background-color: blue;
-        /*box-shadow: 0px 0px 4px- red;*/
-        border: 3px solid red;
+        box-shadow: 0px 0px 4px red;
     }
     .node-1 {
         background-color: red;
         top: 200px;
-        left: 340px;
-    }
-    .graphs-block {
-        color: transparent;
-        margin-top: 100px;
-    }
-    .map-header {
-        position: absolute;
-        top: 0px;
-        left: 20px;
-        background-color: white;
-        padding: 10px;
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
-        /*border-left: 4px solid #777;
-        border-right: 4px solid #777;
-        border-bottom: 4px solid #777;*/
-        /*box-shadow: 0px 2px 4px #333;*/
+        left: 290px;
     }
     </style>
 </head>
@@ -55,13 +36,8 @@
     <div class="container center" style="width:883px;">
         <img src="img/map-1-1.png" id="map">
         <a class="node node-1" href="#graphs">x</a>
-        <div class="map-header">
-            <h4>Peradeniya Area</h4>
-        </div>
       <!-- <hr> -->
     </div>
-      
-      <div id="graphs" class="graphs-block">x</div>
       
       <div class="center">
         <center>
@@ -70,6 +46,7 @@
             </a>
         </center>
 
+      <div id="graphs" class="graphs-block">x</div>
 
         <center><h4>Temperature</h4></center>
         <div id="plot-temp" style="width:600px;height:300px"></div>
@@ -110,7 +87,7 @@
                     series_temp[0].data.push([data['id'], data['temp']]);
                     series_humid[0].data.push([data['id'], data['humid']]);
                     series_wind[0].data.push([data['id'], data['wind']]);
-                    series_rain[0].data.push([data['id'], data['water']]); // [] get rainfall
+                    series_rain[0].data.push([data['id'], data['humid']]); // [] get rainfall
                     $.plot( plotarea_temp , series_temp, options );
                     $.plot( plotarea_humid , series_humid, options );
                     $.plot( plotarea_wind , series_wind, options );
